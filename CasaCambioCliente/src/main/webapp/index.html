@@ -20,14 +20,47 @@
 
                 </tbody>
             </table>
-            <select name="desde">
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
-                <option></option>
+              <input type="submit" value="irAlServlet" onclick="submit();" />
+              <br>
+             <tbody>
+                    <tr>
+                        <td>Ingrese un valor</td>
+                        <td><input type="text" name="monto" value="" /></td>
+                        <td>Convertir desde</td>
+                        <td> <select name="desde">
+                            <option>(CNY) Yuan chino</option>
+                            <option>(GBP) Libra esterlina</option>
+                            <option>(JPY) Yen japonés</option>
+                            <option>(CHF) Franco suizo</option>
+                            <option>(AUD) Dolar australiano</option>
+                            <option>(CAD) Dolar Canadiense</option>
+                            <option>(HKD) Dolar de Hong Kong</option>
+                            <option>(RUB) Rublo ruso</option>
+                            <option>(CNY) Yuan chino</option> 
+                            </select>
+                         </td>
+                     <td>Convertir a</td>
+                        <td> <select name="hasta">
+                            <option>(CNY) Yuan chino</option>
+                            <option>(GBP) Libra esterlina</option>
+                            <option>(JPY) Yen japonés</option>
+                            <option>(CHF) Franco suizo</option>
+                            <option>(AUD) Dolar australiano</option>
+                            <option>(CAD) Dolar Canadiense</option>
+                            <option>(HKD) Dolar de Hong Kong</option>
+                            <option>(RUB) Rublo ruso</option>
+                            <option>(CNY) Yuan chino</option> 
+                             </select>
+                         </td>
+                  
             </select>
-            <input type="submit" value="irAlServlet" onclick="submit();" />
+                    </tr>
+                    
+
+                </tbody>
+            </table>  
+           
+          
         </form>
     </body>
 </html>
