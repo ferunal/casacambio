@@ -8,7 +8,9 @@
     <modules>
         <module>CasaCambio</module>
         <module>CasaCambioCliente</module>
-    </modules>
+    <module>CasaCambioAdm</module>
+    <module>CasaCambioAdmCln</module>
+  </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
