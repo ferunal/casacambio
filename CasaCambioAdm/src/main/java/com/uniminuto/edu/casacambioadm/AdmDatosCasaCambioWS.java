@@ -25,26 +25,44 @@ import javax.ws.rs.core.MediaType;
  */
 @Stateless
 @Path("/admdatos")
-public class AdmDatosCasaCambioWS extends ManejoBD{
-
- 
+public class AdmDatosCasaCambioWS extends ManejoBD {
 
     @GET
+    @Path("/monedas")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Modenda> getLstMonedas() {
 
-        return new ArrayList<>();
+        return getLstModendas();
+    }
+
+    @GET
+    @Path("convertir")
+    public Double convertMoneda(@QueryParam("simboloorg") String pSimboloOrg, @QueryParam("cantidad") Double pCantidad, @QueryParam("simbolodest") String pSimbloDest) {
+        return convertirMoneda(pSimboloOrg, pCantidad, pSimbloDest);
     }
 
     @POST
     public String agregarFactorConv(@QueryParam("simbolo") String simbolo, @QueryParam("nombre") String nombre,
             @QueryParam("valor") double valor, @QueryParam("factor") double factor) {
-        return "";
+        Modenda modenda = new Modenda(simbolo);
+        modenda.setFactor(factor);
+        modenda.setValor(valor);
+        modenda.setNombre(nombre);
+        if (agregarMoneda(modenda)) {
+            return simbolo;
+        } else {
+            return "";
+        }
     }
 
     @PUT
     public String actualizarFactorConv(@QueryParam("simbolo") String simbolo, @QueryParam("nombre") String nombre,
             @QueryParam("valor") double valor) {
-        return "";
+
+        if (actualizarFactConv(simbolo, valor)) {
+            return simbolo;
+        } else {
+            return "";
+        }
     }
 }

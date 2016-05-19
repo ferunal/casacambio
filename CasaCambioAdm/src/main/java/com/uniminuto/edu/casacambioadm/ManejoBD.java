@@ -154,29 +154,34 @@ public abstract class ManejoBD {
         }
     }
 
-    public boolean actualizarFactConv(String pSimbolo, Double pFactor){
+    public boolean actualizarFactConv(String pSimbolo, Double pFactor) {
         try {
             String strBSql = "UPDATE moneda SET valor = ?, factor = ?  WHERE   simbolo = ?";
             String strBSqlRef = "SELECT  simbolo, nombre, valor, factor, referencia FROM moneda WHERE   referencia= ?";
             con = jdbcCasaCambio.getConnection();
-            PreparedStatement smt = con.prepareStatement(strBSql);
+            PreparedStatement smt = con.prepareStatement(strBSqlRef);
             smt.setString(1, pSimbolo);
             ResultSet rs = smt.executeQuery(strBSql);
 
-            Modenda m = new Modenda();
+            Modenda mref = new Modenda();
             while (rs.next()) {
-                m.setSimbolo(rs.getString("simbolo"));
-                m.setNombre(rs.getString("nombre"));
-                m.setValor(rs.getDouble("valor"));
-                m.setFactor(rs.getDouble("factor"));
+                mref.setSimbolo(rs.getString("simbolo"));
+                mref.setNombre(rs.getString("nombre"));
+                mref.setValor(rs.getDouble("valor"));
+                mref.setFactor(rs.getDouble("factor"));
 
             }
-            
-            return true;
+
+            smt = con.prepareStatement(strBSql);
+            smt.setDouble(1, pFactor * mref.getValor());
+            smt.setDouble(2, pFactor);
+            smt.setString(3, pSimbolo);
+
+            return smt.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ManejoBD.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-       
+
     }
 }
