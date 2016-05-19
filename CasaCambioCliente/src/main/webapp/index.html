@@ -1,66 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Convertidor Monedas</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form action="CleinteSrvlt">
-            <table border="0" cellpadding="1">
 
-                <tbody>
-                    <tr>
-                        <td>Monto Dolares a Soles</td>
-                        <td><input type="text" name="monto" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Monto Soles a Dolares</td>
-                        <td><input type="text" name="monto1" value="" /></td>
-                    </tr>
-
-                </tbody>
-            </table>
-              <input type="submit" value="irAlServlet" onclick="submit();" />
-              <br>
-             <tbody>
-                    <tr>
-                        <td>Ingrese un valor</td>
-                        <td><input type="text" name="monto" value="" /></td>
-                        <td>Convertir desde</td>
-                        <td> <select name="desde">
-                            <option>(CNY) Yuan chino</option>
-                            <option>(GBP) Libra esterlina</option>
-                            <option>(JPY) Yen japonés</option>
-                            <option>(CHF) Franco suizo</option>
-                            <option>(AUD) Dolar australiano</option>
-                            <option>(CAD) Dolar Canadiense</option>
-                            <option>(HKD) Dolar de Hong Kong</option>
-                            <option>(RUB) Rublo ruso</option>
-                            <option>(CNY) Yuan chino</option> 
-                            </select>
-                         </td>
-                     <td>Convertir a</td>
-                        <td> <select name="hasta">
-                            <option>(CNY) Yuan chino</option>
-                            <option>(GBP) Libra esterlina</option>
-                            <option>(JPY) Yen japonés</option>
-                            <option>(CHF) Franco suizo</option>
-                            <option>(AUD) Dolar australiano</option>
-                            <option>(CAD) Dolar Canadiense</option>
-                            <option>(HKD) Dolar de Hong Kong</option>
-                            <option>(RUB) Rublo ruso</option>
-                            <option>(CNY) Yuan chino</option> 
-                             </select>
-                         </td>
-                  
-            </select>
-                    </tr>
-                    
-
-                </tbody>
-            </table>  
-           
-          
-        </form>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>P&aacute;gina para la conversi&oacute;n de monedas</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Factor de Conversi&oacute;n</h3>
+                    <input type="text" name="monto" value="" />
+                </div>
+                <div class="col-md-6">
+                    <h3>Convertir desde</h3>
+                    <select name="desde">
+                        <option>(CNY) Yuan chino</option>
+                        <option>(GBP) Libra esterlina</option>
+                        <option>(JPY) Yen japon&eacute;s</option>
+                        <option>(CHF) Franco suizo</option>
+                        <option>(AUD) Dolar australiano</option>
+                        <option>(CAD) Dolar Canadiense</option>
+                        <option>(HKD) Dolar de Hong Kong</option>
+                        <option>(RUB) Rublo ruso</option>
+                        <option>(CNY) Yuan chino</option> 
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <h3>Convertir a</h3>
+                    <select name="desde">
+                        <option>(CNY) Yuan chino</option>
+                        <option>(GBP) Libra esterlina</option>
+                        <option>(JPY) Yen japon&eacute;s</option>
+                        <option>(CHF) Franco suizo</option>
+                        <option>(AUD) Dolar australiano</option>
+                        <option>(CAD) Dolar Canadiense</option>
+                        <option>(HKD) Dolar de Hong Kong</option>
+                        <option>(RUB) Rublo ruso</option>
+                        <option>(CNY) Yuan chino</option> 
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <button type="button" class="btn btn-primary btn-lg" onclick="submit();">Convertir</button>
+        </div>
     </body>
 </html>
