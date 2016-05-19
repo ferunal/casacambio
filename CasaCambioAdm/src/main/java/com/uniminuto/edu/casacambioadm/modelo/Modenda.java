@@ -5,6 +5,8 @@
  */
 package com.uniminuto.edu.casacambioadm.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author lchacon
@@ -14,6 +16,35 @@ public class Modenda {
     private String nombre;
     private Double valor;
     private Double factor;
+
+    public Modenda(String simbolo) {
+        this.simbolo = simbolo;
+    }
+
+    public Modenda() {
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.simbolo);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Modenda other = (Modenda) obj;
+        return Objects.equals(this.simbolo, other.simbolo);
+    }
 
     /**
      * @return the simbolo
