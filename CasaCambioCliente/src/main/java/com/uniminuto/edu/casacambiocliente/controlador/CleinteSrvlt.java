@@ -55,17 +55,25 @@ public class CleinteSrvlt extends HttpServlet {
                 
                 out.println("</head>");
                 out.println("<body>");
-                
+                out.println("<div class=\"container\">");
+                out.println("<div class=\"row\">");
                 CasaCambio port = service.getCasaCambioPort();
-                // TODO initialize WS operation arguments here
-
-                // TODO process result here
-                double result = port.cambiaDolaresASoles(monto);
                 
-                out.println("Resultado de dolares a soles = " + result);
-
-                out.println("Resultado de soles a dolares= " +  port.cambiarSolesADolares(monto));
-
+                out.println("<div class=\"col-md-6\">");
+                out.println("<h3><b>Dolares a Soles</b></h3>");
+                
+                double result = port.cambiaDolaresASoles(monto);
+                out.println("<h3>" + result + "</h3>");
+                out.println("</div>");
+                
+                out.println("<div class=\"col-md-6\">");
+                out.println("<h3><b>Soles a Dolares</b></h3>");
+                out.println("<h3>" + port.cambiarSolesADolares(monto) + "</h3>");
+                out.println("</div>");
+                
+                out.println("</div>");
+                out.println("</div>");
+                
             } catch (Exception ex) {
                 System.out.println(ex);
             }
