@@ -23,7 +23,7 @@ import javax.xml.ws.WebServiceRef;
 @WebServlet(name = "CleinteSrvlt", urlPatterns = {"/CleinteSrvlt"})
 public class CleinteSrvlt extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_9368/CasaCambio/CasaCambio.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CasaCambio/CasaCambio.wsdl")
     CasaCambio_Service service;
 
     /**
@@ -47,14 +47,21 @@ public class CleinteSrvlt extends HttpServlet {
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
-                out.println("<title>Servlet CleinteSrvlt</title>");
+                out.println("<title>Convertidor Moneda</title>");
+                out.println("<meta charset=\"utf-8\">");
+                out.println("<link rel=\"stylesheet\" href=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\">");
+                out.println("<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js\"></script>");
+                out.println("<script src=\"http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js\"></script>");
+                
                 out.println("</head>");
                 out.println("<body>");
+                
                 CasaCambio port = service.getCasaCambioPort();
                 // TODO initialize WS operation arguments here
 
                 // TODO process result here
                 double result = port.cambiaDolaresASoles(monto);
+                
                 out.println("Resultado de dolares a soles = " + result);
 
                 out.println("Resultado de soles a dolares= " +  port.cambiarSolesADolares(monto));
@@ -63,7 +70,7 @@ public class CleinteSrvlt extends HttpServlet {
                 System.out.println(ex);
             }
 
-            out.println("<h1>Servlet CleinteSrvlt at " + request.getContextPath() + "</h1>");
+            //out.println("<h1>Servlet CleinteSrvlt at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

@@ -9,48 +9,53 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </head>
     <body>
+        <form action="CleinteSrvlt">
 
-        <div class="container">
-            <div class="jumbotron">
-                <h1>P&aacute;gina para la conversi&oacute;n de monedas</h1>
+
+
+            <div class="container">
+                <div class="jumbotron" align="center">
+                    <h1>P&aacute;gina para la conversi&oacute;n de monedas</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Factor de Conversi&oacute;n</h3>
+                        <input type="text" name="monto" value="" />
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Convertir desde</h3>
+                        <select name="desde">
+                            <option>(CNY) Yuan chino</option>
+                            <option>(GBP) Libra esterlina</option>
+                            <option>(JPY) Yen japon&eacute;s</option>
+                            <option>(CHF) Franco suizo</option>
+                            <option>(AUD) Dolar australiano</option>
+                            <option>(CAD) Dolar Canadiense</option>
+                            <option>(HKD) Dolar de Hong Kong</option>
+                            <option>(RUB) Rublo ruso</option>
+                            <option>(CNY) Yuan chino</option> 
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>Convertir a</h3>
+                        <select name="desde">
+                            <option>(CNY) Yuan chino</option>
+                            <option>(GBP) Libra esterlina</option>
+                            <option>(JPY) Yen japon&eacute;s</option>
+                            <option>(CHF) Franco suizo</option>
+                            <option>(AUD) Dolar australiano</option>
+                            <option>(CAD) Dolar Canadiense</option>
+                            <option>(HKD) Dolar de Hong Kong</option>
+                            <option>(RUB) Rublo ruso</option>
+                            <option>(CNY) Yuan chino</option> 
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Factor de Conversi&oacute;n</h3>
-                    <input type="text" name="monto" value="" />
-                </div>
-                <div class="col-md-6">
-                    <h3>Convertir desde</h3>
-                    <select name="desde">
-                        <option>(CNY) Yuan chino</option>
-                        <option>(GBP) Libra esterlina</option>
-                        <option>(JPY) Yen japon&eacute;s</option>
-                        <option>(CHF) Franco suizo</option>
-                        <option>(AUD) Dolar australiano</option>
-                        <option>(CAD) Dolar Canadiense</option>
-                        <option>(HKD) Dolar de Hong Kong</option>
-                        <option>(RUB) Rublo ruso</option>
-                        <option>(CNY) Yuan chino</option> 
-                    </select>
-                </div>
-                <div class="col-md-6">
-                    <h3>Convertir a</h3>
-                    <select name="desde">
-                        <option>(CNY) Yuan chino</option>
-                        <option>(GBP) Libra esterlina</option>
-                        <option>(JPY) Yen japon&eacute;s</option>
-                        <option>(CHF) Franco suizo</option>
-                        <option>(AUD) Dolar australiano</option>
-                        <option>(CAD) Dolar Canadiense</option>
-                        <option>(HKD) Dolar de Hong Kong</option>
-                        <option>(RUB) Rublo ruso</option>
-                        <option>(CNY) Yuan chino</option> 
-                    </select>
-                </div>
+            <br/><br/><br/><br/>
+            <div class="col-sm-12" align="center">
+                <button type="button" class="btn btn-primary btn-lg" onclick="submit();">Convertir</button>
             </div>
-        </div>
-        <div class="col-sm-12">
-            <button type="button" class="btn btn-primary btn-lg" onclick="submit();">Convertir</button>
-        </div>
+        </form>
     </body>
 </html>
