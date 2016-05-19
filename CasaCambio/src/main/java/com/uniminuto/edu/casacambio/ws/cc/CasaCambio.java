@@ -16,7 +16,7 @@ import javax.ejb.Stateless;
  */
 @WebService(serviceName = "CasaCambio")
 @Stateless()
-public class CasaCambio {
+public class CasaCambio extends ManejoBD{
 
     /**
      * This is a sample web service operation
