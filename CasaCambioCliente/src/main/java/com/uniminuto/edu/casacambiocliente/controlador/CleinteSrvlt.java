@@ -5,8 +5,6 @@
  */
 package com.uniminuto.edu.casacambiocliente.controlador;
 
-import com.uniminuto.edu.casacambiocliente.controlador.wscln.CasaCambio;
-import com.uniminuto.edu.casacambiocliente.controlador.wscln.CasaCambio_Service;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -81,7 +79,7 @@ public class CleinteSrvlt extends HttpServlet {
                 System.out.println(ex);
             }
 
-            //out.println("<h1>Servlet CleinteSrvlt at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CleinteSrvlt at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }

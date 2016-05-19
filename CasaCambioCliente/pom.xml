@@ -96,10 +96,13 @@
                         </goals>
                         <configuration>
                             <wsdlFiles>
-                                <wsdlFile>localhost_8081/CasaCambio/CasaCambio.wsdl</wsdlFile>
+                                <wsdlFile>localhost_8080/CasaCambio/CasaCambio.wsdl</wsdlFile>
                             </wsdlFiles>
-                            <packageName>com.uniminuto.edu.casacambiocliente.controlador.wscln</packageName>
-                            <wsdlLocation>http://localhost:8081/CasaCambio/CasaCambio?WSDL</wsdlLocation>
+                            <packageName>com.uniminuto.edu.casacambiocliente.controlador</packageName>
+                            <vmArgs>
+                                <vmArg>-Djavax.xml.accessExternalSchema=all</vmArg>
+                            </vmArgs>
+                            <wsdlLocation>http://localhost:8080/CasaCambio/CasaCambio?wsdl</wsdlLocation>
                             <staleFile>${project.build.directory}/jaxws/stale/CasaCambio.stale</staleFile>
                         </configuration>
                         <id>wsimport-generate-CasaCambio</id>
