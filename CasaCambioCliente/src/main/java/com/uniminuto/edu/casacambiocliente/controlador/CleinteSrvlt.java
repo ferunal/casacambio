@@ -23,7 +23,7 @@ import javax.xml.ws.WebServiceRef;
 @WebServlet(name = "CleinteSrvlt", urlPatterns = {"/CleinteSrvlt"})
 public class CleinteSrvlt extends HttpServlet {
 
-    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/CasaCambio/CasaCambio.wsdl")
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8081/CasaCambio/CasaCambio.wsdl")
     CasaCambio_Service service;
 
     /**
@@ -43,6 +43,7 @@ public class CleinteSrvlt extends HttpServlet {
 
             try { // Call Web Service Operation
                 Double monto = Double.parseDouble(request.getParameter("monto"));
+                String conversion = request.getParameter("convertirDesde");
 //              Double monto1 = Double.parseDouble(request.getParameter("monto1"));
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
@@ -73,6 +74,8 @@ public class CleinteSrvlt extends HttpServlet {
                 
                 out.println("</div>");
                 out.println("</div>");
+                
+                out.println("valor yuan chino: " + port.cambiarAMonedaGenerica(monto, conversion));
                 
             } catch (Exception ex) {
                 System.out.println(ex);
