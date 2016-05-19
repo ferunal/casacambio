@@ -40,4 +40,11 @@ public class CasaCambio {
         }
 
     }
+    
+    @WebMethod(operationName = "cambiarAMonedaGenerica")
+    public double cambiarAMonedaGenerica(@WebParam(name = "monto") double monto, @WebParam(name = "conversion") String conversion) {
+        if(conversion.equals("(CNY) Yuan chino"))
+            return 5D;
+        else return 10D;
+    }
 }
