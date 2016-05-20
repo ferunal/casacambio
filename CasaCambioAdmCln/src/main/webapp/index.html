@@ -7,9 +7,43 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+
+
+            $("#btn").click(function () {
+                $.get("http://localhost:28080/CasaCambioAdm/webresources/admdatos/monedas", function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+            /*
+             $(document).ready(function () {
+             $("#btn").click(function () {
+             var simbolo = $("#simbolo").val();
+             var nombre = $("#nombre").val();
+             var valor = $("#valor").val();
+             var facconversion = $("#facconversion").val();
+             $.ajax({
+             url: 'http://localhost:28080/CasaCambioAdm/webresources/admdatos/monedas',
+             //data: myData,
+             type: 'GET',
+             crossDomain: true,
+             dataType: 'json',
+             success: function () {
+             alert("Success");
+             },
+             error: function () {
+             alert('Failed!');
+             }
+             ,
+             beforeSend: setHeader
+             });
+             }
+             
+             */
+        </script>
     </head>
     <body>
-        <form action=""/>
+        <form action="">
 
 
 
@@ -20,20 +54,21 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Simbolo</h3>
-                        <input type="text" name="simbolo" value="" />
+                        <input type="text" name="simbolo" id="simbolo" value="" />
                         <h3>Nombre</h3>
-                        <input type="text" name="nombre" value="" />
+                        <input type="text" name="nombre" id="nombre"  value="" />
                         <h3>Valor</h3>
-                        <input type="text" name="valor" value="" />
+                        <input type="text" name="valor" id="valor"  value="" />
                         <h3>Factor de Conversion</h3>
-                        <input type="text" name="facconversion" value="" />
-                        <h3>Referencia</h3>
-                        <input type="text" name="referencia" value="" />
+                        <input type="text" name="facconversion" id="facconversion" value="" />
+
                     </div>
-           <br/><br/><br/>
-            <div class="col-sm-12" align="center">
-                
-                <button type="button" class="btn btn-primary btn-lg" onclick="submit();">Agregar</button>
+                    <br/><br/><br/>
+                    <div class="col-sm-12" align="center">
+
+                        <button  id="btn" type="button" class="btn btn-primary btn-lg" >Agregar</button>
+                    </div>
+                </div>
             </div>
         </form>
     </body>

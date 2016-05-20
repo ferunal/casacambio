@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.annotation.Resource;
 import javax.sql.DataSource;
+import org.postgresql.ds.PGSimpleDataSource;
 
 /**
  *
@@ -24,14 +24,23 @@ import javax.sql.DataSource;
  */
 public abstract class ManejoBD {
 
-    @Resource(name = "jdbcCasaCambio")
-    protected DataSource jdbcCasaCambio;
+    public DataSource jdbcCasaCambio(){
+        PGSimpleDataSource ds = new PGSimpleDataSource();
+        ds.setUser("auditoria");
+        ds.setPassword("auditoria");
+        ds.setDatabaseName("casacambio");
+        ds.setServerName("localhost");
+        ds.setPortNumber(5432);
+        return ds;
+    }
+//    @Resource(name = "jdbcCasaCambio")
+//    protected DataSource jdbcCasaCambio;
     Connection con;
 
     protected boolean agregarMoneda(Modenda pMoneda) {
 
         try {
-            con = jdbcCasaCambio.getConnection();
+            con = jdbcCasaCambio().getConnection();
             String strSql = "INSERT INTO moneda(\n"
                     + "            simbolo, nombre, valor, factor)\n"
                     + "    VALUES (?, ?, ?, ?)";
@@ -63,7 +72,7 @@ public abstract class ManejoBD {
             strBSql.append(pSimboloOrg);
             strBSql.append("')");
 
-            con = jdbcCasaCambio.getConnection();
+            con = jdbcCasaCambio().getConnection();
             Statement smt = con.createStatement();
             ResultSet rs = smt.executeQuery(strBSql.toString());
             List<Modenda> lstModendas = new ArrayList<>();
@@ -98,7 +107,7 @@ public abstract class ManejoBD {
         try {
             String strBSql = "SELECT  simbolo, nombre, valor, factor, referencia FROM moneda ORDER BY  simbolo";
 
-            con = jdbcCasaCambio.getConnection();
+            con = jdbcCasaCambio().getConnection();
             Statement smt = con.createStatement();
             ResultSet rs = smt.executeQuery(strBSql);
             List<Modenda> lstModendas = new ArrayList<>();
@@ -128,7 +137,7 @@ public abstract class ManejoBD {
         try {
             String strBSql = "SELECT  simbolo, nombre, valor, factor, referencia FROM moneda WHERE   simbolo = ?";
 
-            con = jdbcCasaCambio.getConnection();
+            con = jdbcCasaCambio().getConnection();
             PreparedStatement smt = con.prepareStatement(strBSql);
             smt.setString(1, pSimbolo);
             ResultSet rs = smt.executeQuery(strBSql);
@@ -158,7 +167,7 @@ public abstract class ManejoBD {
         try {
             String strBSql = "UPDATE moneda SET valor = ?, factor = ?  WHERE   simbolo = ?";
             String strBSqlRef = "SELECT  simbolo, nombre, valor, factor, referencia FROM moneda WHERE   referencia= ?";
-            con = jdbcCasaCambio.getConnection();
+            con = jdbcCasaCambio().getConnection();
             PreparedStatement smt = con.prepareStatement(strBSqlRef);
             smt.setString(1, pSimbolo);
             ResultSet rs = smt.executeQuery(strBSql);

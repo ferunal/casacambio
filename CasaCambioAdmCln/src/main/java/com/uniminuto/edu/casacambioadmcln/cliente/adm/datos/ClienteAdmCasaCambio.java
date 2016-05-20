@@ -14,7 +14,7 @@ import javax.ws.rs.client.WebTarget;
  * [/admdatos]<br>
  * USAGE:
  * <pre>
- *        ClienteAdmDatosCln client = new ClienteAdmDatosCln();
+ *        ClienteAdmCasaCambio client = new ClienteAdmCasaCambio();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -22,13 +22,13 @@ import javax.ws.rs.client.WebTarget;
  *
  * @author lchacon
  */
-public class ClienteAdmDatosCln {
+public class ClienteAdmCasaCambio {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:21674/CasaCambioAdm/webresources";
+    private static final String BASE_URI = "http://localhost:8080/CasaCambioAdm/webresources";
 
-    public ClienteAdmDatosCln() {
+    public ClienteAdmCasaCambio() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
         webTarget = client.target(BASE_URI).path("admdatos");
     }
@@ -37,12 +37,15 @@ public class ClienteAdmDatosCln {
         return webTarget.request().put(null, String.class);
     }
 
+  
+
     public String agregarFactorConv() throws ClientErrorException {
         return webTarget.request().post(null, String.class);
     }
 
     public <T> T getLstMonedas(Class<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
+        resource = resource.path("monedas");
         return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 

@@ -16,7 +16,7 @@ import javax.ejb.Stateless;
  */
 @WebService(serviceName = "CasaCambio")
 @Stateless()
-public class CasaCambio extends ManejoBD{
+public class CasaCambio extends ManejoBD {
 
     /**
      * This is a sample web service operation
@@ -40,11 +40,9 @@ public class CasaCambio extends ManejoBD{
         }
 
     }
-    
+
     @WebMethod(operationName = "cambiarAMonedaGenerica")
-    public double cambiarAMonedaGenerica(@WebParam(name = "monto") double monto, @WebParam(name = "conversion") String conversion) {
-        if(conversion.equals("(CNY) Yuan chino"))
-            return 5D;
-        else return 10D;
+    public double cambiarAMonedaGenerica(@WebParam(name = "simboloorg") String simboloorg, @WebParam(name = "monto") double monto, @WebParam(name = "simbolodest") String simbolodest) {
+        return convertirMoneda(simboloorg, monto, simbolodest);
     }
 }
